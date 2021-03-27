@@ -10,10 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,8 +46,8 @@ INSTALLED_APPS = [
 
     'tailwind',
     'theme',
-    'devgram',
-    'devgramuser'
+    'devgarm',
+    'devgramuser',
     'cloudinary',
 ]
 
@@ -92,8 +95,15 @@ WSGI_APPLICATION = 'gram.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('DB_NAME', 'postgres'),
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'password'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': '',
+        'TEST': {
+            'NAME': 'gram',
+        }
     }
 }
 
