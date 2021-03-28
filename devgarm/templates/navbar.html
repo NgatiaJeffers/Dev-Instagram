@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devgram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css	">
+</head>
+<body>
+    <nav class="relative flex flex-wrap items items-center justify-between px-2 py-3 navbar-expand-lg bg-primary mb-3 shadow-md" x-data="{ mobileMenuOpen : false }">
+        <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+            <div class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
+                <a class="text-2xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="/">
+                    Dev Gram
+                </a>
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block
+                lg:hidden outline-none focus:outline-none" type="button">
+                <span class="block relative w-6 h-px rounded-sm bg-white"></span>
+                <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
+                <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
+                </button>
+            </div>
+            <div class="lg:flex flex-grow item-center" id="example-navbar-warning" :class="{ 'flex' : mobileMenuOpen , 'hidden' : !mobileMenuOpen}"  @click.away="mobileMenuOpen = false">
+                <ul class="flex flex-col lg:flex-row list-none mr-auto">
+
+                    <li class="nav-item">
+                        <a class="px-3 py-2 flex items-center text-x5 uppercase font-bold leading-snug text-white hover:text-secondary-200" href="https://github.com/NgatiaJeffers">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex w-full sm:w-7/12 md:w-5/12 px-4 flex-wrap items-stretch lg:ml-auto">
+                <form class="relative" action="{% url 'search_results' %}">
+                    <input type="text" class="h-12 w-96 pr-8 pl-5 rounded z-0 focus:shadow focus:outline-none" name="search_item" placeholder="Search anything...">
+                    <div class="absolute top-4 right-3" type="submit">
+                        <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</body>
+</html>

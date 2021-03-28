@@ -11,7 +11,19 @@ module.exports = {
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                primary: '#D96846',
+                secondary: {
+                    100: '#596235',
+                    200: '#2F3020',
+                    300: '#CDCBD6'
+                }
+            },
+            fontFamily: {
+                body: ['Poppins']
+            }
+        },
     },
     variants: {
         extend: {},
