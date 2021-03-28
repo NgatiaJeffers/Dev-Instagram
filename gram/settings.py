@@ -44,14 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'tailwind',
-    'theme',
     'devgarm',
     'devgramuser',
     'cloudinary',
+    'bootstrap4',
 ]
-
-TAILWIND_APP_NAME = 'theme'
 
 cloudinary.config( 
     cloud_name = "devgallery", 

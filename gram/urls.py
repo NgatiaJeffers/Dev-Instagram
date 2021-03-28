@@ -20,9 +20,9 @@ from devgramuser import views as uv
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("home", include("devgarm.urls"), name = "home"),
+    path("home", include("devgarm.urls")),
     path("register/", uv.register, name = "register"),
     path("profile/", uv.profile, name = "profile"),
-    path('', av.LoginView.as_view(template_name = "registration/login.html"), name = "login"),
+    path("", av.LoginView.as_view(template_name = "registration/login.html"), name = "login"),
     path("logout/", av.LogoutView.as_view(template_name = "registration/logout.html"), name = "logout"),
 ]
