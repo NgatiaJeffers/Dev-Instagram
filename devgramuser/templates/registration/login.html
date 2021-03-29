@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="pt-5">
-                    <span>Don't have an account? Create one <a href="/register">here</a></span>
+                    <span>Don't have an account? Create one <a href="{% url 'register' %}">here</a></span>
                 </div>
             </form>
         </div>
@@ -50,8 +50,8 @@
     max-width: 100%;
 }
 
-.form-validate {
+/* .form-validate {
     width: 290px;
-}
+} */
     </style>
 {% endblock %}
