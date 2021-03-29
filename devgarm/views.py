@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
-    post = Post.objects.all().order_by("-last_modified")
+    post = Post.objects.all().order_by("-created")
 
     context = {
         "posts": post,

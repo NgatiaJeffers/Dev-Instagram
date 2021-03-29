@@ -8,7 +8,6 @@ class Post(models.Model):
     image_name = models.CharField(max_length = 100)
     image_caption = models.TextField(max_length = 500)
     created = models.DateTimeField(auto_now_add = True)
-    last_modified = models.DateTimeField(auto_now_add = True)
     author = models.ForeignKey(User, on_delete = models.CASCADE)
     likes = models.IntegerField(null = True, default = 0)
 

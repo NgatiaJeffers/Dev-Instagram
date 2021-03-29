@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-xl-10 col-12">
             {% for post in posts %}
-            <div class="timeline timeline-line-solid">
+            <div class="timeline timeline-line-solid mt-3">
                 <span class="timeline-label">
                     <span class="label">{{post.created}}</span>
                 </span>
@@ -90,7 +90,7 @@
                         </div>
                         <div class="time-left">{{ post.last_modified }}</div>
                     </div>
-                </div>
+        </div>
 
                 <div class="timeline-item">
                     <div class="timeline-point timeline-point"></div>
@@ -175,4 +175,6 @@
         </div>
     </div>
 </div>
+
 {% endblock %}
+
