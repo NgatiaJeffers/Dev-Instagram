@@ -92,15 +92,14 @@
     </div>
 
     <!-- Comment Section -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
     <ul class="timeline">
         <li>
             <div class="timeline-body">
             <div class="timeline-comment-box">
                 <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
                 <div class="input">
-                    <form action="/home{{ post.pk }}" method="POST">
+                    <form action="/home{{ post.pk }}/" method="post">
+                        {% csrf_token %}
                         <div class="input-group">
                         {{ form.body }}
                         <span class="input-group-btn p-l-10">
@@ -110,7 +109,7 @@
                     </form>
                 </div>
 
-                <div class="container bootstrap snippets bootdey">
+                <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="blog-comment">
@@ -120,11 +119,12 @@
                                 <li class="clearfix">
                                     <img src="https://bootdey.com/img/Content/user_1.jpg" class="avatar" alt="">
                                     <div class="post-comments">
-                                        <p class="meta">Dec 18, 2014 <a href="#">JohnDoe</a> says : <i class="pull-right"><a href="#"><small>Reply</small></a></i></p>
+                                        {% for comment in comments %}
+                                        <p class="meta">{{ comment.created }} <a href="#">{{ comment.author }}</a> says : <i class="pull-right"><a href="#"><small>Reply</small></a></i></p>
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Etiam a sapien odio, sit amet
+                                            {{ comment.body }}
                                         </p>
+                                        {% endfor %}
                                     </div>
                                 </li>
                                 </ul>
@@ -137,7 +137,6 @@
             <!-- end timeline-body -->
         </li>
     </ul>
-</div>
 </div>
 
 

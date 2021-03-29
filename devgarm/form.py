@@ -9,7 +9,7 @@ class PostForm(forms.Form):
     
     class Meta:
         model = NewPost
-        fiels = ['image']
+        fields = ['image']
 
 class CommentForm(forms.Form):
     body = forms.CharField(widget = forms.TextInput(attrs = {"class": "form-control", "placeholder": "Leavea Comment"}))

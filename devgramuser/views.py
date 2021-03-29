@@ -50,7 +50,7 @@ def profile(request):
         "user_form": user_form,
         "profile_form": profile_form,
         "user_post": user_post,
-        "post": post
+        "posts": post
     }
 
     return render(request, "registration/profile.html", context)

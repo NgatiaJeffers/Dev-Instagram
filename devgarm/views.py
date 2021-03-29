@@ -44,7 +44,7 @@ def add_post(request):
 @login_required
 @csrf_protect
 def post_detail(request, pk):
-    post = Post.objects.get(pk = pk)
+    post = Post.objects.get(pk=pk)
     user = request.user
     form = CommentForm()
     if request.method == "POST":
@@ -64,7 +64,6 @@ def post_detail(request, pk):
     return render(request, "grampost/post_details.html", context)
 
 @login_required
-@csrf_protect
 def like(request, pk):
     post = Post.objects.get(pk=pk)
     post.likes+=1
