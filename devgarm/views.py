@@ -66,8 +66,8 @@ def post_detail(request, pk):
 @login_required
 @csrf_protect
 def like(request, pk):
-    post = Post.objects.get(pk = pk)
-    post.likes += 1
+    post = Post.objects.get(pk=pk)
+    post.likes+=1
     post.save()
 
     return redirect("home")

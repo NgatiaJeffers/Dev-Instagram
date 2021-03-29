@@ -39,10 +39,7 @@
                                                 <i class="la la-trash"></i>Delete Post
                                             </a>
                                             <a href="{% url 'post_detail' post.pk %}" class="dropdown-item">
-                                                <i class="la la-bell-slash"></i>View Post
-                                            </a>
-                                            <a href="#" class="dropdown-item faq">
-                                                <i class="la la-question-circle"></i>FAQ
+                                                <i class="la la-comment"></i>View Post
                                             </a>
                                         </div>
                                     </div>
@@ -81,7 +78,7 @@
                                 <div class="col no-padding d-flex justify-content-end">
                                     <div class="meta">
                                         <ul>
-                                            <li><a href="#"><i class="la la-comment"></i><span class="numb">38</span></a></li>
+                                            <li><a href="{% url 'post_detail' post.pk %}"><i class="la la-comment"></i><span class="numb">38</span></a></li>
                                             <li><a href="{% url 'likes' post.pk %}"><i class="la la-heart"></i><span class="numb">{{ post.likes }}</span></a></li>
                                         </ul>
                                     </div>
