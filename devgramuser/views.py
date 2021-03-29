@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserUpdateForm, ProfileUpdateForm, RegisterForm
 from django.views.decorators.csrf import csrf_protect
@@ -37,14 +37,14 @@ def profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, f'Your account has been updated')
-            return redirect("Profile")
+            return redirect("profile")
 
     else:
         user_form = UserUpdateForm(instance = request.user)
         profile_form = ProfileUpdateForm(instance=request.user.profile)
 
-    user_post = Post.objects.filter(author=request.user).order_by("-last_modified")
-    post = Post.objects.filter(author=request.user).order_by("-last_modified")
+    user_post = Post.objects.filter(author=request.user).order_by("-created")
+    post = Post.objects.filter(author=request.user).order_by("-created")
 
     context = {
         "user_form": user_form,

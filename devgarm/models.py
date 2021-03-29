@@ -22,3 +22,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.post
+
+class NewPost(models.Model):
+    image = CloudinaryField('image')

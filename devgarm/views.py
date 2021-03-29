@@ -4,7 +4,6 @@ from .form import PostForm, CommentForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
-from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -16,11 +15,59 @@ def index(request):
 
     return render(request, "grampost/home.html", context)
 
+@login_required
+@csrf_protect
 def add_post(request):
-    pass
+    form = PostForm(request.POST, request.FILES)
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = Post(
+                image = form.cleaned_data["image"],
+                image_name = form.cleaned_data["image_name"],
+                image_caption = form.cleaned_data["image_caption"],
+                author = request.user
+            )
 
-def post_detail(request):
-    pass
+            post.save()
+            print(post)
 
-def like(request):
-    pass
+            post_name = form.cleaned_data.get("image_name")
+            messages.success(request, f'Post created {post_name} !')
+            return redirect("home")
+
+    else:
+        form = PostForm()
+
+    return render(request, "grampost/new_post.html", {"form": form})
+
+@login_required
+@csrf_protect
+def post_detail(request, pk):
+    post = Post.objects.get(pk = pk)
+    user = request.user
+    form = CommentForm()
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = Comment(author = user, body = form.cleaned_data["body"], post = post)
+
+            comment.save()
+
+    comments = Comment.objects.filter(post = post).order_by("-created")
+    context = {
+        "post": post,
+        "comments": comments,
+        "form": form,
+    }
+
+    return render(request, "grampost/post_details.html", context)
+
+@login_required
+@csrf_protect
+def like(request, pk):
+    post = Post.objects.get(pk = pk)
+    post.likes += 1
+    post.save()
+
+    return redirect("home")
