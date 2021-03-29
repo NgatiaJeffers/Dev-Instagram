@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'devgramuser',
     'cloudinary',
     'bootstrap4',
+    'crispy_forms',
 ]
 
 cloudinary.config( 
@@ -148,3 +149,5 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"

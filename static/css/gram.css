@@ -2,4 +2,28 @@
 
 body {
     font-family: "Poppins", sans-serif, Gotham Rounded;
+    background-color: #F6F4E8;
+}
+
+.navbar {
+    background-color: #F6F4E8 !important;
+}
+
+.wrap {
+    width: 960px;
+    background-color: #FFF;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 177px 130px 33px 95px;
+}
+
+.ic {
+    width: 316px;
+}
+
+.pic img {
+    max-width: 100%;
 }
