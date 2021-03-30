@@ -1,1 +1,1 @@
-web: gunicorn devgram.wsgi --log-file -
+web: gunicorn gram.wsgi --log-file -
