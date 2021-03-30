@@ -14,6 +14,9 @@ class Post(models.Model):
     def __str__(self):
         return self.image_name
 
+    def delete(self):
+        self.delete()
+
 class Comment(models.Model):
     body = models.TextField()
     created = models.DateTimeField(auto_now_add = True)

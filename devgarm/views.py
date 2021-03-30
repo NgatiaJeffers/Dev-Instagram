@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post, Comment
 from .form import PostForm, CommentForm
 from django.contrib import messages
@@ -70,3 +71,17 @@ def like(request, pk):
     post.save()
 
     return redirect("home")
+
+@login_required
+def delete_post(request, id):
+    obj = get_object_or_404(Post, id = id)
+    if request.method == "POST" and request.user.is_authenticated and request.user.username == User:
+        obj.delete()
+
+        messages.success(request, f'Post deleted successfully.')
+        return redirect("home")
+
+    context = {}
+
+
+    return render(request, "grampost/delete_post.html", context)
