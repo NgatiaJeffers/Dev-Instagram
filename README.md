@@ -58,6 +58,6 @@ A clone of the website for the popular photo app like Instagram.
 ### License
 
 No Licence issued. modify it at your own cost
-Copyright (c) 2020 **Github App**
+Copyright (c) 2021 **Github App**
 
 Licensed under the [JeffDev License](LICENSE).
