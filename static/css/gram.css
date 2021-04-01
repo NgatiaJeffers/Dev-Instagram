@@ -19,6 +19,45 @@ body {
     font-size: 1.7rem;
 }
 
+.widget-header h1,
+.widget-header h2,
+.widget-header h3,
+.widget-header h4,
+.widget-header h5,
+.widget-header h6 {
+    color: #2c304d;
+    margin-bottom: 0
+}
+
+.section-title h1,
+.section-title h2,
+.section-title h3,
+.section-title h4,
+.section-title h5,
+.section-title h6 {
+    color: #2c304d;
+    font-weight: 600;
+    margin-bottom: 0
+}
+
+.widget-header h2 {
+    color: #2c304d;
+    font-size: 1.2rem;
+    display: table-cell;
+    vertical-align: middle;
+    margin-right: auto
+}
+
+.widget-header h2 i {
+    color: #aea9c3;
+    font-size: 1.8rem;
+    padding-right: .5rem;
+    vertical-align: middle
+}
+
+.widget-body {
+    padding: 1.4rem
+}
 
 .no-border {
     border: 0 none !important;
@@ -90,7 +129,7 @@ hr {
 }
 
 a {
-    color: #82b440;
+    color: #000;
     text-decoration: none;
 }
 
